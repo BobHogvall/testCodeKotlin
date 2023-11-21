@@ -97,10 +97,19 @@ class MainActivity : ComponentActivity() {
             ConstraintLayout (constraints, modifier = Modifier.fillMaxSize()) {
                 Box(modifier = Modifier
                     .background(Color.LightGray)
-                    .layoutId("progressbarbox"))
+                    .fillMaxSize()
+                    .layoutId("progressbarbox"),
+                    contentAlignment = Alignment.Center){
+                    CircularProgressBar(percentage = 0.75f, number = 100)
+                }
                 Box(modifier = Modifier
                     .background(Color.Green)
-                    .layoutId("mondaybox"))
+                    .layoutId("mondaybox"),
+                    contentAlignment = Alignment.Center){
+                    Text(
+                        text = "Monday"
+                    )
+                }
                 Box(modifier = Modifier
                     .background(Color.Red)
                     .layoutId("tuesdaybox"),
