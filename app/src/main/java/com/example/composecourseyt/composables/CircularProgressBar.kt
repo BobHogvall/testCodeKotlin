@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.delay
 
 @Composable
 fun CircularProgressBar(
@@ -48,6 +49,7 @@ fun CircularProgressBar(
     )
     LaunchedEffect(key1 = true) {
         animationPlayed = true
+        delay(1500L)
         navController.navigate("main_screen")
     }
     Box(
@@ -65,7 +67,7 @@ fun CircularProgressBar(
         }
         Text(
             text = (curPercentage.value * number).toInt().toString(),
-            color = Color.Black,
+            color = Color.White,
             fontSize = fontSize,
             fontWeight = FontWeight.Bold)
     }

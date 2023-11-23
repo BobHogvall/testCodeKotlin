@@ -39,7 +39,7 @@ fun SplashScreen(navController: NavController){
        contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
     ){
-        CircularProgressBar(percentage = 0.75f, number = 100, navController = navController )
+        CircularProgressBar(percentage = 1f, number = 100, navController = navController )
     }
 }
 
