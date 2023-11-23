@@ -1,7 +1,6 @@
 package com.example.composecourseyt.composables
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,7 +31,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.example.composecourseyt.BottomNavItem
 
 @Composable
@@ -64,7 +62,7 @@ fun BottomNavigationBar(
     val backStackEntry = navController.currentBackStackEntryAsState()
     NavigationBar(
         modifier = modifier,
-        containerColor = Color.Black,
+        containerColor = Color.DarkGray,
         tonalElevation = 5.dp
     ) {
         items.forEach { item ->
@@ -74,7 +72,8 @@ fun BottomNavigationBar(
                 onClick = { onItemCLick(item) },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.Green,
-                    unselectedIconColor = Color.LightGray
+                    unselectedIconColor = Color.LightGray,
+                    indicatorColor = Color.DarkGray
                 ),
                 icon = {
                     Column(horizontalAlignment = CenterHorizontally) {
@@ -100,7 +99,7 @@ fun ChatScreen() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Chat Screen")
+        Text(text = "Chat Screen", color = Color.White)
     }
 }
 
@@ -110,7 +109,7 @@ fun SettingsScreen() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Settings Screen")
+        Text(text = "Settings Screen", color = Color.White)
     }
 }
 
