@@ -21,57 +21,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val constraints = ConstraintSet {
-                val mondayBox = createRefFor("mondaybox")
-                val tuesdayBox = createRefFor("tuesdaybox")
-                val progressBarBox = createRefFor("progressbarbox")
-                createVerticalChain(progressBarBox, mondayBox, tuesdayBox)
 
-                constrain(progressBarBox){
-                    top.linkTo(parent.top)
-                    start.linkTo(parent.start, margin = 40.dp) //fix how to center, perhaps use guideline
-                    width = Dimension.value(300.dp)
-                    height = Dimension.value(300.dp)
-                }
-                constrain(mondayBox){
-                    top.linkTo(progressBarBox.bottom)
-                    start.linkTo(progressBarBox.start)
-                    width = Dimension.value(300.dp)
-                    height = Dimension.value(100.dp)
-                }
-
-                constrain(tuesdayBox){
-                    top.linkTo(mondayBox.bottom)
-                    start.linkTo(mondayBox.start)
-                    width = Dimension.value(300.dp)
-                    height = Dimension.value(100.dp)
-                }
-            }
-            ConstraintLayout (constraints, modifier = Modifier.fillMaxSize()) {
-                Box(modifier = Modifier
-                    .background(Color.LightGray)
-                    .fillMaxSize()
-                    .layoutId("progressbarbox"),
-                    contentAlignment = Alignment.Center){
-                    CircularProgressBar(percentage = 0.75f, number = 100) // look up how to set this as first page with EffectHandlers
-                }
-                Box(modifier = Modifier
-                    .background(Color.Green)
-                    .layoutId("mondaybox"),
-                    contentAlignment = Alignment.Center){
-                    Text(
-                        text = "Monday"
-                    )
-                }
-                Box(modifier = Modifier
-                    .background(Color.Red)
-                    .layoutId("tuesdaybox"),
-                contentAlignment = Alignment.Center){
-                    Text (
-                        text = "Tuesday"
-                    )
-                }
-            }
         }
     }
 }
