@@ -1,4 +1,4 @@
-package com.example.composecourseyt
+package com.example.composecourseyt.data
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
