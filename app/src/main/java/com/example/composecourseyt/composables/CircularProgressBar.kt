@@ -49,7 +49,7 @@ fun CircularProgressBar(
     )
     LaunchedEffect(key1 = true) {
         animationPlayed = true
-        delay(1500L)
+        delay(1000L)
         navController.navigate("main_screen")
     }
     Box(
