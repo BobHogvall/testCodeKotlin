@@ -9,6 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -16,9 +18,17 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
+import com.example.composecourseyt.R
 
 @Composable
 fun MainScreen() {
+    val fontFamily = FontFamily(
+        Font(R.font.rubik_bold, FontWeight.Bold),
+        Font(R.font.rubik_extrabold, FontWeight.ExtraBold),
+        Font(R.font.rubik_medium, FontWeight.Medium),
+        Font(R.font.rubik_regular, FontWeight.Normal),
+        Font(R.font.rubik_semibold, FontWeight.SemiBold),
+    )
     val constraints = ConstraintSet {
         val mondayBox = createRefFor("mondaybox")
         val tuesdayBox = createRefFor("tuesdaybox")
@@ -78,7 +88,8 @@ fun MainScreen() {
             Text(
                 text = "Monday",
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.SemiBold
             )
         }
         Box(
@@ -90,7 +101,8 @@ fun MainScreen() {
             Text(
                 text = "Tuesday",
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.SemiBold
             )
         }
         Box(
@@ -102,7 +114,8 @@ fun MainScreen() {
             Text(
                 text = "Wednesday",
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.SemiBold
             )
         }
         Box(
@@ -114,7 +127,7 @@ fun MainScreen() {
             Text(
                 text = "Thursday",
                 fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.SemiBold
             )
         }
         Box(
@@ -123,7 +136,10 @@ fun MainScreen() {
                 .layoutId("fridaybox"),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Friday", fontSize = 26.sp, fontWeight = FontWeight.Bold)
+            Text(text = "Friday",
+                fontSize = 26.sp,
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.SemiBold)
         }
     }
 }
