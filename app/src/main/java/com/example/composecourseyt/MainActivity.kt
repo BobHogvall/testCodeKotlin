@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
+            val navController = rememberNavController() //Shouldn't be on splash screen
             Scaffold(
                 bottomBar = {
                     BottomNavigationBar(

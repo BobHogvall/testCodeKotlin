@@ -1,5 +1,7 @@
 package com.example.composecourseyt.composables
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,11 +18,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import java.time.LocalDateTime
 
+
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun GreetingSection(
-    name: String = "Bob"
+    name: String = "Bob",
 ){
+    var greeting = getGreetingMessage()
     Row(
        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
@@ -32,12 +38,12 @@ fun GreetingSection(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Good morning, $name",
+                text = "$greeting, $name",
                 style = MaterialTheme.typography.headlineSmall,
                 color = Color.LightGray
             )
             Text(
-                text = "We wish you have a good day",
+                text = "We wish you the best of times!",
                 style = MaterialTheme.typography.bodySmall,
                 color = Color.LightGray
             )
@@ -48,5 +54,18 @@ fun GreetingSection(
             tint = Color.LightGray,
             modifier = Modifier.size(24.dp)
         )
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+@Composable
+private fun getGreetingMessage(): String {
+    val current = LocalDateTime.now().hour
+    return if (current < 12) {
+        "Good Morning"
+    } else if (current in 12..16) {
+        "Good Day"
+    } else {
+        "Good Evening"
     }
 }
