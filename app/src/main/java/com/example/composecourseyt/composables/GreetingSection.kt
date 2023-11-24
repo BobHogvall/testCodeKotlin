@@ -26,7 +26,7 @@ import java.time.LocalDateTime
 fun GreetingSection(
     name: String = "Bob",
 ){
-    var greeting = getGreetingMessage()
+    val greeting = getGreetingMessage()
     Row(
        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
