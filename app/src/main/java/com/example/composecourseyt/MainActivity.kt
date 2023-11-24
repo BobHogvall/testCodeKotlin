@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                             ),
                         ),
                         navController = navController,
-                        onItemCLick = {
+                        onItemClick = {
                             navController.navigate(it.route)
                         })
                 }

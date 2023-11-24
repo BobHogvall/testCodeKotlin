@@ -30,12 +30,14 @@ fun MainScreen() {
         Font(R.font.rubik_semibold, FontWeight.SemiBold),
     )
     val constraints = ConstraintSet {
+        val greetingsBox = createRefFor("greetingsbox")
         val mondayBox = createRefFor("mondaybox")
         val tuesdayBox = createRefFor("tuesdaybox")
         val wednesdayBox = createRefFor("wednesdaybox")
         val thursdayBox = createRefFor("thursdaybox")
         val fridayBox = createRefFor("fridaybox")
         createVerticalChain(
+            greetingsBox,
             mondayBox,
             tuesdayBox,
             wednesdayBox,
@@ -44,10 +46,15 @@ fun MainScreen() {
             chainStyle = ChainStyle.Spread
         )
 
-        constrain(mondayBox) {
+        constrain(greetingsBox){
             top.linkTo(parent.top)
+            start.linkTo(parent.start)
+            width = Dimension.matchParent
+        }
+        constrain(mondayBox) {
+            top.linkTo(greetingsBox.top)
             start.linkTo(
-                parent.start,
+                greetingsBox.start,
                 margin = 48.dp
             ) //better way to center? Might be better with column.
             width = Dimension.percent(0.75f)
@@ -79,6 +86,11 @@ fun MainScreen() {
         }
     }
     ConstraintLayout(constraints, modifier = Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier.layoutId("greetingsbox")
+        ){
+            GreetingSection()
+        }
         Box(
             modifier = Modifier
                 .background(Color.Green)

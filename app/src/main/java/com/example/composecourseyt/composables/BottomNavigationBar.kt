@@ -26,7 +26,7 @@ fun BottomNavigationBar(
     items: List<BottomNavItem>,
     navController: NavController,
     modifier: Modifier = Modifier,
-    onItemCLick: (BottomNavItem) -> Unit
+    onItemClick: (BottomNavItem) -> Unit
 ) {
     val backStackEntry = navController.currentBackStackEntryAsState()
     NavigationBar(
@@ -38,7 +38,7 @@ fun BottomNavigationBar(
             val selected = item.route == backStackEntry.value?.destination?.route
             NavigationBarItem(
                 selected = selected,
-                onClick = { onItemCLick(item) },
+                onClick = { onItemClick(item) },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.Green,
                     unselectedIconColor = Color.LightGray,

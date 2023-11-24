@@ -3,7 +3,6 @@ package com.example.composecourseyt.composables
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -34,11 +33,13 @@ fun GreetingSection(
         ) {
             Text(
                 text = "Good morning, $name",
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall,
+                color = Color.LightGray
             )
             Text(
                 text = "We wish you have a good day",
-                style = MaterialTheme.typography.bodySmall
+                style = MaterialTheme.typography.bodySmall,
+                color = Color.LightGray
             )
         }
         Icon(
