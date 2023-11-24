@@ -14,6 +14,6 @@ fun SettingsScreen() {
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Settings Screen", color = Color.White)
+        ChipSection(chips = listOf("Brush Teeth", "Put On Clothes", "Eat Breakfast", "Go To School"))
     }
 }

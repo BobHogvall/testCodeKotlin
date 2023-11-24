@@ -1,7 +1,10 @@
 package com.example.composecourseyt.composables
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +23,7 @@ import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
 import com.example.composecourseyt.R
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun MainScreen() {
     val fontFamily = FontFamily(
@@ -89,7 +93,7 @@ fun MainScreen() {
         Box(
             modifier = Modifier.layoutId("greetingsbox")
         ){
-            GreetingSection()
+                GreetingSection()
         }
         Box(
             modifier = Modifier
